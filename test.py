@@ -1,10 +1,5 @@
-import time
+from time import sleep
 import terval
-
-
-def sleep(t):
-    time.sleep(t)
-
 
 t = terval.T("timer", shut_up=True)
 
