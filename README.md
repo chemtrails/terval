@@ -1,20 +1,59 @@
-Terval simply prints the time elapsed since it was last called in nanoseconds
+### Terval measures, formats and prints performance
 
-```
+```console
 pip install git+https://github.com/chemtrails/terval
 ```
 
+Fake function:
+
 ```py
-from time import sleep
+import time
+def fake():
+    time.sleep(0.1)
+```
+
+### Example of a default timer
+
+Call `x()` after every task
+
+Call `toggle()` to stop and resume printing
+
+```py
 from terval import Terval
 
+timer = Terval()
+
+fake()
+timer.x()
+
+# stop printing
+timer.toggle()
+
+fake()
+# this will not be printed
+timer.x()
+
+# resume printing
+timer.toggle()
+
+fake()
+timer.x()
+```
+
+![image](https://raw.githubusercontent.com/chemtrails/terval/master/images/terminal2.png)
+
+### Example of a silent timer and named task
+
+`print(timer)` to show summary
+
+```py
 timer = Terval("timer", silent=True)
 
-sleep(0.1)
+fake()
 timer.x("named task")
 
 for _ in range(2):
-    sleep(0.1)
+    fake()
     timer.x()
 
 print(timer)
@@ -22,26 +61,5 @@ print(timer)
 
 ![image](https://raw.githubusercontent.com/chemtrails/terval/master/images/terminal.png)
 
-silent is False by default. Call `toggle()` to stop or resume printing
-
-```py
-timer = Terval()
-
-sleep(0.1)
-timer.x()
-
-timer.toggle()
-
-sleep(0.1)
-timer.x()
-
-timer.toggle()
-
-sleep(0.1)
-timer.x()
-```
-
-![image](https://raw.githubusercontent.com/chemtrails/terval/master/images/terminal2.png)
-
-Dependencies:
+### Dependencies
 - tabulate

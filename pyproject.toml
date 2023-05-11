@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "terval"
 version = "0.0.1"
-description = "The easiest way to measure performance"
+description = "Terval measures, formats and prints performance"
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
