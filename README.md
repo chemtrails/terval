@@ -19,7 +19,7 @@ for _ in range(2):
     sleep(0.1)
     t.x()
 
-print(timer)
+print(t)
 ```
 
 ![image](https://raw.githubusercontent.com/chemtrails/terval/master/images/terminal.png)
