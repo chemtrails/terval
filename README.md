@@ -1,25 +1,28 @@
-### Terval measures, formats and prints performance
+#### Terval - Performance counter
 
-```console
+```bash
 pip install git+https://github.com/chemtrails/terval.git
 ```
 
-### Example
-
+Usage
 ```py
-from time import sleep
-from terval import Terval
+from terval import Perf
 
-t = Terval()
+perf = Perf()
 
-sleep(0.1)
-t.x("named task")
+do_something()
+perf.x("Something")
 
-for _ in range(2):
-    sleep(0.1)
-    t.x()
-
-print(t)
+do_something_else()    
+perf.x("Something else")
 ```
 
-![image](https://raw.githubusercontent.com/chemtrails/terval/master/images/terminal.png)
+Turn printing off
+```py
+perf.silent = True
+```
+
+Show summary
+```py
+print(perf)
+```
